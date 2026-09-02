@@ -3,10 +3,12 @@
 #include <conio.h>
 #include <ctime>
 #include <windows.h>
+
 using namespace std;
 
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
     srand(time(NULL));
 
     int snkx=10,snky=7,koniec=0,res=0,cz=0,sek=0,fps=0;
@@ -15,7 +17,7 @@ int main()
   int BX = rand() % 18 + 2;
         int BY=0;
   int BX2 = rand() % 18 + 2;
-        int BY2=2;
+        int BY2=1;
   int BX3 = rand() % 18 + 2;
         int BY3=1;
   int BX4 = rand() % 18 + 2;
@@ -36,8 +38,11 @@ int RY5 = rand() % 8 + 2;
   int RY6 = rand() % 8 + 2;
         int RX6=20;
 
+  int AY = rand() % 2 + 4;
+        int AX=1;
 
-
+int AY2 = rand() % 2 + 4;
+        int AX2=1;
 
 
 
@@ -55,7 +60,7 @@ int RY5 = rand() % 8 + 2;
 BX = rand() % 18 + 2;
         BY=0;
   BX2 = rand() % 18 + 2;
-        BY2=2;
+        BY2=1;
   BX3 = rand() % 18 + 2;
         BY3=1;
   BX4 = rand() % 18 + 2;
@@ -77,12 +82,17 @@ BX = rand() % 18 + 2;
    RY6 = rand() % 8 + 2;
          RX6=20;
 
+            AY = rand() % 2 + 4;
+         AX=1;
+
+ AY2 = rand() % 2 + 4;
+         AX2=1;
+
 
     snkx=10;
     snky=7;
     res=0;
-    cz=0;
-    sek=0;
+
 }
 
 
@@ -138,7 +148,22 @@ if(RX6<=1){
        RY6 = rand() % 8 + 2;
          RX6=20;
 }
+}if(sek>23){
+if(AX>=20){
+    AY = rand() % 2 + 4;
+         AX=1;
+
 }
+}
+if(sek>23){
+
+if(AX2>=20){
+    AY2 = rand() % 2 + 4;
+         AX2=1;
+}
+
+}
+
 
 
 
@@ -163,26 +188,24 @@ if(RX6<=1){
 if(snky==1 || snky==10 || snkx==1 || snkx==20 || snky==BY && snkx==BX || snky==BY2 && snkx==BX2 || snky==BY3 && snkx==BX3 || snky==BY4 && snkx==BX4 || snky==BY5 && snkx==BX5 ||  snky==RY && snkx==RX || snky==RY2 && snkx==RX2 || snky==RY3 && snkx==RX3 || snky==RY4 && snkx==RX4|| snky==RY5 && snkx==RX5 || snky==RY6 && snkx==RX6){
                     koniec=1;
                 }
-                if(sek>22 && sek < 35 && snky == (2||3||6||7||8||9) ){
-
-
-                    koniec=1;
-                }
+if(sek>22 && sek < 40 && (snky==2 || snky==3 || snky==6 || snky==7 || snky==8 || snky==9|| snky ==AY && snkx==AX||snky ==AY2 && snkx==AX2)){
+    koniec=1;
+}
 
     if(sek<=10){
         if(cz==10){
         cz=0;
         sek++;
         }
-    }else if(sek>10 && sek <21){
+    }else if(sek>10 && sek <23){
 
     if(cz==20){
         cz=0;
     sek++;
     }
 
-    }else if(sek>=21 && sek < 35){
-    if (cz==20){
+    }else if(sek>=23 && sek < 40){
+    if (cz==40){
         cz=0;
         sek++;
     }
@@ -234,10 +257,13 @@ if(snky==1 || snky==10 || snkx==1 || snkx==20 || snky==BY && snkx==BX || snky==B
 
                 }else if(sek>20 && sek <22 && (i==2 || i==3 || i==6|| i==7|| i==8|| i==9)){
                     cout << "!";
-                }else if(sek>22 && sek < 35 && (i==2 || i==3 || i==6|| i==7|| i==8|| i==9)){
+                }else if(sek>22 && sek < 40 && (i==2 || i==3 || i==6|| i==7|| i==8|| i==9)){
                 cout << "#";
-                }else
+                }else if(i==AY && j==AX || i==AY2 && j==AX2){
+                cout << ">";
+                }
 
+                else
                 {
                     cout << " ";
                 }
@@ -276,7 +302,9 @@ if(snky==1 || snky==10 || snkx==1 || snkx==20 || snky==BY && snkx==BX || snky==B
         if(snky==1 || snky==10 || snkx==1 || snkx==20 || snky==BY && snkx==BX || snky==BY2 && snkx==BX2 || snky==BY3 && snkx==BX3 || snky==BY4 && snkx==BX4 || snky==BY5 && snkx==BX5 ||  snky==RY && snkx==RX || snky==RY2 && snkx==RX2 || snky==RY3 && snkx==RX3 || snky==RY4 && snkx==RX4|| snky==RY5 && snkx==RX5 || snky==RY6 && snkx==RX6){
                     koniec=1;
                 }
-
+if(sek>22 && sek < 50 && (snky==2 || snky==3 || snky==6 || snky==7 || snky==8 || snky==9 || snky ==AY && snkx==AX||snky ==AY2 && snkx==AX2)){
+    koniec=1;
+}
     }
     if(sek<11){
         Sleep(100);
@@ -285,17 +313,18 @@ if(snky==1 || snky==10 || snkx==1 || snkx==20 || snky==BY && snkx==BX || snky==B
     Sleep(50);
     cz++;
     }else{
-        Sleep(50);
+        Sleep(25);
     cz++;
     }
 
 
-
+if(sek<11){
 BY++;
 BY2++;
 BY3++;
 BY4++;
 BY5++;
+}
 if(sek>11 && sek<21){
     RX--;
     RX2--;
@@ -303,6 +332,12 @@ if(sek>11 && sek<21){
     RX4--;
     RX5--;
     RX6--;
+}
+if(sek>23 && sek<40){
+AX++;
+}
+if(sek>26 && sek<40){
+AX2++;
 }
     system("cls");
 
@@ -315,7 +350,26 @@ if(sek>11 && sek<21){
 
 if(koniec==1){
 
-    cout << "GAME OVER" << endl << sek << " sekund" << endl << endl << "1 - play again?" << endl << endl;
+    cout << "GAME OVER" << endl << sek << " sekund" << endl << endl << "1 - play again?" << endl << "2 - play stage II" << endl << "3 - play stage III" << endl;
+
+
+
+    cout << endl;
+    cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀" << endl;
+    cout << "⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⠟⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀" << endl;
+    cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣳⠖⠳⣄⡀⠀⠀⠀⠀⠀⠀" << endl;
+    cout << "⠀⠀⠀⠀⡤⠒⠀⠂⡾⠉⠀⠀⠀⠀⠉⢳⡄⣄⡀⠀⠀" << endl;
+    cout << "⠀⠀⠀⢸⡥⠀⣀⡼⢁⠀⢰⡄⠀⡄⠀⠀⣧⠀⠙⡆⠀" << endl;
+    cout << "⠀⢀⣠⠼⠗⠚⠉⠠⠋⠀⠀⢷⣠⣧⠀⠀⠈⠳⢤⣇⠀" << endl;
+    cout << "⠀⣾⣟⠒⠦⣄⠀⠀⠀⣠⡴⠋⠁⢈⠛⢦⣄⣠⣴⣾⣷" << endl;
+    cout << "⢀⡟⠙⢶⣤⠬⠷⣼⡏⠉⠉⢩⡍⠹⠦⢤⣿⣤⣨⣿⠈" << endl;
+    cout << "⣡⠆⠁⠀⠀⠀⢠⡀⠀⠀⠀⢱⡀⠀⠂⠙⠎⠻⡅⠀" << endl;
+    cout << "⢿⠁⠒⣤⠤⣤⣀⠀⢧⠀⠀⠀⣸⠃⠀⠀⠀⡶⣤⣽⠀" << endl;
+    cout << "⠈⠳⣴⡇⠀⠀⠈⠛⢦⣄⣠⠾⢿⣄⣀⣠⠾⣡⠞⠁⠀" << endl;
+    cout << "⠀⠀⠈⠉⠉⠉⠁⢧⢠⠟⣽⠀⢿⠀⢧⢰⡈⠀⠀⠀⠀" << endl;
+    cout << "⠀⠀⠀⠀⠀⠀⠐⢫⠏⢸⠁⠀⠈⢳⠘⢧⣙⢦⠀" << endl << endl;
+
+
 
 
 
@@ -329,15 +383,37 @@ cout << "Procesing...";
 Sleep(1000);
         koniec=0;
         res=1;
+            cz=0;
+    sek=0;
+    }else if(e=='2'){
+    cout << "Procesing...";
+Sleep(1000);
+        koniec=0;
+        res=1;
+        sek=11;
+        cz=0;
+    }else if(e=='3'){
+    cout << "Procesing...";
+Sleep(1000);
+        koniec=0;
+        res=1;
+        sek=21;
+        cz=0;
     }
 
-
 }
 
-}
-cout << endl;
 
 }
+}
+
+
+
+
+
+
+
+
 
 
 
